@@ -1,0 +1,44 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Resources.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    <Style x:Key="H_ToolTip" TargetType="ToolTip">
+        <Setter Property="Foreground">
+            <Setter.Value>
+                <SolidColorBrush Color="{StaticResource ForegroundColor}"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Background">
+            <Setter.Value>
+                <SolidColorBrush Color="{StaticResource BackgroundColor}"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="BorderThickness" Value="{StaticResource BorderThickness}"/>
+        <Setter Property="Padding" Value="{StaticResource HorizontalPadding}"/>
+        <Setter Property="FontSize" Value="{StaticResource FontSize}"/>
+        <Setter Property="RenderTransformOrigin" Value="{StaticResource RenderTransformOrigin}"/>
+        <Setter Property="RenderTransform" Value="{StaticResource RenderTransform}"/>
+        <Setter Property="LayoutTransform" Value="{StaticResource LayoutTransform}"/>
+        <Setter Property="Effect" Value="{StaticResource DropShadowEffect}"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ToolTip">
+                    <Border x:Name="Border" BorderBrush="{TemplateBinding Foreground}" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}"
+                            Padding="{TemplateBinding Padding}" CornerRadius="{StaticResource CornerRadius}" RenderTransformOrigin="{TemplateBinding RenderTransformOrigin}"
+                            RenderTransform="{StaticResource RenderTransform}" LayoutTransform="{StaticResource LayoutTransform}" Effect="{TemplateBinding Effect}">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="OpenStates">
+                                <VisualState x:Name="Closed" Storyboard="{StaticResource Disabled}"/>
+                                <VisualState x:Name="Open" Storyboard="{StaticResource Normal}"/>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="{TemplateBinding Margin}"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>
